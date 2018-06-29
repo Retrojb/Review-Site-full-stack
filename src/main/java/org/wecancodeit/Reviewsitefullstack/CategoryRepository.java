@@ -4,4 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CategoryRepository extends CrudRepository<Category, Long> {
 
+	Object findById(Long id);
+
+	
 }

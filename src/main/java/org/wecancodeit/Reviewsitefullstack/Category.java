@@ -2,6 +2,7 @@ package org.wecancodeit.Reviewsitefullstack;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,20 +19,22 @@ public class Category {
 		private String category;
 		private String description;
 		
-		@OneToMany
-		Collection <Review> reviews;
+//		@ManyToOne
+//		Review review;
+		@OneToMany(mappedBy="category")
+		private Collection<Review> review;
 		
 		protected Category() {}
 
-		public Category(String genre, String description, Review...reviews ) {
-			this.category = genre;
+		public Category(String category, String description) {
+			this.category = category;
 			this.description = description;
-			this.reviews = Arrays.asList(reviews);
+//			this.review = Arrays.asList(review);
 		}
 		
 		@Override
 		public String toString() {
-			return category + " " + description + " " + reviews;
+			return category + " " + description + " " + review;
 		}
 
 		public String getGenre() {
@@ -41,8 +44,16 @@ public class Category {
 		public String getDescription() {
 			return description;
 		}
-		//add toString
+		
 		// add collection to whatever we are collecting 
 		// add it to parameter of the constructor too. 
+
+		public Long getId() {
+			return id;
+		}
+
+//		public Review getReviews() {
+//			return review;
+//		}
 		
 }
