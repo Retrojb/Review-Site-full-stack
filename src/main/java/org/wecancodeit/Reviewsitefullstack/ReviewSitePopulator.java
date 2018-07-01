@@ -1,5 +1,6 @@
 package org.wecancodeit.Reviewsitefullstack;
 
+import org.hibernate.engine.jdbc.spi.SqlExceptionHelper.StandardWarningHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
@@ -13,34 +14,47 @@ public class ReviewSitePopulator implements CommandLineRunner {
 		@Autowired
 		private CategoryRepository categoryRepo;
 
+		@Autowired
+		private TagRepository tagRepo;
+		
 		@Override
 		public void run(String... args) throws Exception {
 			
-			Category action = categoryRepo.save(new Category("Action", "movies that will rock your socks"));
-			Category romance = categoryRepo.save(new Category("Romance", "movies that will rock your socks"));
-			Category Disney = categoryRepo.save(new Category("Disney", "movies that will rock your socks"));
-			Category LucasFilms = categoryRepo.save(new Category("Lucas Film", "movies that will rock your socks"));
-			Category SciFi = categoryRepo.save(new Category("Sci-Fi", "movies that will rock your socks"));
-			Category Adventure = categoryRepo.save(new Category("Adventure", "movies that will rock your socks"));
-			Category Original = categoryRepo.save(new Category("Original", "movies that will rock your socks"));
-			Category Sequal = categoryRepo.save(new Category("Sequal", "movies that will rock your socks"));
-			Category Garbage = categoryRepo.save(new Category("Garabage", "movies that will rock your socks"));
-			Category Amazing = categoryRepo.save(new Category("Amazing", "movies that will rock your socks"));
+			Tag action = tagRepo.save(new Tag("Action"));
+			Tag romance = tagRepo.save(new Tag("Romance"));
+			Tag Disney = tagRepo.save(new Tag("Disney"));
+			Tag LucasFilms = tagRepo.save(new Tag("Lucas Film"));
+			Tag SciFi = tagRepo.save(new Tag("Sci-Fi"));
+			Tag Adventure = tagRepo.save(new Tag("Adventure"));
+			Tag	Future  = tagRepo.save(new Tag("future"));
+			Tag Sequal = tagRepo.save(new Tag("Sequel"));
+			Tag Garbage = tagRepo.save(new Tag("Garbage"));
+			Tag Amazing = tagRepo.save(new Tag("Amazing"));
+			Tag prequal = tagRepo.save(new Tag("Prequle"));
+			Category Original = categoryRepo.save(new Category("Original"));
+			Review SWNewHope = reviewRepo.save(new Review("Star Wars: Episode IV: A New Hope", "young mans jpurney", "image/newhope.jpg", Original, SciFi, LucasFilms, Amazing, action, Adventure, romance));
+//			Review SWReturnOfJedi = reviewRepo.save(new Review("Star Wars: Episode V: The Empire Strikes Back", "The saga continues, as the rebels lose control, and Luke learns from a Jedi Master", "empirestrike.jpg", Sequal));
+//			Review SWEmpireStrikesBack= reviewRepo.save(new Review("Star Wars: Episode VI: Return of the Jedi", "Han Solo is saved from the Jabba the Hut, While Luke must face Darth Vader", "IT'S A TRAP!!!!!", "returnjedi.jpg", LucasFilms));
+//			Review SWThePhantomMenace = reviewRepo.save(new Review("Star Wars: Episode I: The Phantom Menace", "Some lame kid who loves to podrace is abducted by two Jedi", "I'ma Jar Jar Binks!", "infinitywars.jpg", Garbage));
+//			Review SWAttckOfTheClones = reviewRepo.save(new Review("Star Wars: Episode II: Attack of the Clones", "The Jedi order continue to fight off the Sith armies", "All my friends are dead, push me to the edge", "infinitywars.jpg", Garbage));
+//			Review SWRevengeOfTheSith = reviewRepo.save(new Review("Star Wars: Episode III: Revenge of the Seth ", "Anakin Skywaler acts like a brat, turns to the dark side, a Obi-wan leaves him ina burning pile", "*HEAVY BREATHING... ", "infinitywars.jpg", action));
+//			Review SWTheLastJedi = reviewRepo.save(new Review("Star Wars: Episode VII: The Last Jedi", "With the rebels attempts falling apart, the need for a new hope", "All my friends are ", "infinitywars.jpg", Disney));
+//			Review SWRogueOne = reviewRepo.save(new Review("Star Wars: Episode III.V: Rogue One", "a rag tag group of hero's must try and foil a plan by the empire", "my friends", "infinitywars.jpg", Amazing));
+//			Review SWForceAwakens = reviewRepo.save(new Review("Star Wars: Episode VIII: The Force Awakens", "Is ", "All ", "infinitywars.jpg", Disney));
+//			Review SWSolo = reviewRepo.save(new Review("Star Wars: Episode II.V: Solo", "Han Solo, origin story", "Enter Donald Glover", "infinitywars.jpg", Disney));
 
-			Review SWNewHope = reviewRepo.save(new Review("Avengers Infinity Wars", "Great movie, Thanos is the bad guy", "All my friends are dead, push me to the edge", "infinitywars.jpg", action));
-			Review SWReturnOfJedi = reviewRepo.save(new Review("Avengers Infinity Wars", "Great movie, Thanos is the bad guy", "All my friends are dead, push me to the edge", "infinitywars.jpg", romance));
-			Review SWEmpireStrikesBack= reviewRepo.save(new Review("Avengers Infinity Wars", "Great movie, Thanos is the bad guy", "All my friends are dead, push me to the edge", "infinitywars.jpg", LucasFilms));
-			Review SWThePhantomMenace = reviewRepo.save(new Review("Avengers Infinity Wars", "Great movie, Thanos is the bad guy", "All my friends are dead, push me to the edge", "infinitywars.jpg", Garbage));
-			Review SWAttckOfTheClones = reviewRepo.save(new Review("Avengers Infinity Wars", "Great movie, Thanos is the bad guy", "All my friends are dead, push me to the edge", "infinitywars.jpg", Garbage));
-			Review SWRevengeOfTheSith = reviewRepo.save(new Review("Avengers Infinity Wars", "Great movie, Thanos is the bad guy", "All my friends are dead, push me to the edge", "infinitywars.jpg", Garbage));
-			Review SWTheLastJedi = reviewRepo.save(new Review("Avengers Infinity Wars", "Great movie, Thanos is the bad guy", "All my friends are dead, push me to the edge", "infinitywars.jpg", Disney));
-			Review SWRogueOne = reviewRepo.save(new Review("Avengers Infinity Wars", "Great movie, Thanos is the bad guy", "All my friends are dead, push me to the edge", "infinitywars.jpg", Disney));
-			Review SWForceAwakens = reviewRepo.save(new Review("Avengers Infinity Wars", "Great movie, Thanos is the bad guy", "All my friends are dead, push me to the edge", "infinitywars.jpg", Disney));
-			Review SWSolo = reviewRepo.save(new Review("Avengers Infinity Wars", "Great movie, Thanos is the bad guy", "All my friends are dead, push me to the edge", "infinitywars.jpg", Disney));
-
-			categoryRepo.save(action);
-			categoryRepo.save(romance);
-		}
+			reviewRepo.save(SWNewHope);
+//			reviewRepo.save(SWReturnOfJedi);
+//			reviewRepo.save(SWEmpireStrikesBack);
+//			reviewRepo.save(SWThePhantomMenace);
+//			reviewRepo.save(SWAttckOfTheClones);
+//			reviewRepo.save(SWRevengeOfTheSith);
+//			reviewRepo.save(SWTheLastJedi);
+//			reviewRepo.save(SWRogueOne);
+//			reviewRepo.save(SWForceAwakens);
+//			reviewRepo.save(SWSolo);
+			
+			}
 		
 		
 		

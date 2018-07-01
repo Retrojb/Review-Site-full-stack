@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Review Site</title>
+
+<title>Star Wars Review Site</title>
 </head>
+
 <body>
-<h1>Review Site</h1>
+
+<header>
+<h1 >Title</h1>
+
+</header>
+
+	
 	<ul>
-		<li th:each="review: ${review}">
-		<a th:href="@{/review/}">
-		<span th:text="${review.movieName} + ': '">Movie</span>
-		<span th:text="${review.category}">Category</span>
-		</a>
-		</li>
+	<li>
+		<a th:href="@{/reviews}">Review</a>
+		<a th:href="@{/categories}">Categories</a>
+		<a th:href="@{/tags}">Tags</a>
+	</li>	
 	</ul>
 	
 </body>

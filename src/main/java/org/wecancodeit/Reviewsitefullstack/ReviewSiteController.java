@@ -11,25 +11,17 @@ public class ReviewSiteController {
 
 	@Autowired
 	ReviewRepository reviewRepo;
-	@Autowired
-	CategoryRepository categoryRepo;
 	
-	@RequestMapping(value = "/review")
+	@RequestMapping(value = "/reviews")
 	public String getReview(Model model) {
-		model.addAttribute("review", reviewRepo.findAll());
-		return "review";
+		model.addAttribute("reviews", reviewRepo.findAll());
+		return "reviews";
 	}
-	
-//	@RequestMapping(value = "/review")
-//	public String reviewHome(Model model) {
-//		model.addAttribute("review", reviewRepo.findAll());
-//		return "review";
-//	}
-	
-	@RequestMapping("/category/{id}")
-	public String getCategory(@PathVariable(name="id") Long id, Model model) {
-		model.addAttribute("category", categoryRepo.findById(id));
-		return "category";
+
+	@RequestMapping("/reviews/{title}")
+	public String getReview(@PathVariable(name="title") String title, Model model) {
+		model.addAttribute("review", reviewRepo.findByTitle(title));
+		return "review";
 	}
 		
 	

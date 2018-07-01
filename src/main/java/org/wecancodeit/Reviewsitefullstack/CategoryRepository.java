@@ -1,10 +1,11 @@
 package org.wecancodeit.Reviewsitefullstack;
 
+import java.util.Collection;
+
 import org.springframework.data.repository.CrudRepository;
 
 public interface CategoryRepository extends CrudRepository<Category, Long> {
 
-	Object findById(Long id);
+	Category findByName(String name);
 
-	
 }

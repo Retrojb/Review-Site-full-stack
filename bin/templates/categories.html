@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Star Wars Review Site</title>
+</head>
+<body>
+<h1>Categories:</h1>
+	
+	<a th:href="@{/review/}">Return to Movie Reviews</a>
+	<section>
+	<ul>
+	<li th:each="categories: ${categories}">
+	<a th:href="|@{/categories/movie-pages/}${categories.name}|">
+	<span th:text="${categories.name}"></span>
+	</a>
+	</li>
+	</ul>
+	</section>
+	<article>
+		<h3 th:text="|Category: ${reviews}"></h3>
+	</article>
+</body>
+</html>

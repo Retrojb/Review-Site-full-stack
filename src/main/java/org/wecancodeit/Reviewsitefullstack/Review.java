@@ -6,8 +6,9 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Review {
@@ -15,33 +16,33 @@ public class Review {
 	@Id
 	@GeneratedValue	
 	private Long id;
-	private String movieName;
-	private String review;
-	private String content;
+	
+	private String title;
 	private String imgUrl;
-//	
-//	@OneToMany(mappedBy="review")
-//	private Collection<Category> category;
-//	
+
+	@ManyToMany
+	private Collection<Tag>tags;
+	
 	@ManyToOne
 	Category category;
 	
-	public Review() {}
-	public Review(String movieName, String review, String content, String imgUrl, Category category) {
-		this.movieName = movieName;
-		this.review = review;
+	@Lob
+	private String content;
+
+	
+	protected Review() {}
+	
+	public Review(String title, String content, String imgUrl, Category category, Tag ...tags) {
+		this.title = title;
 		this.content = content;
 		this.imgUrl = imgUrl;
-//		this.category = Arrays.asList(categories);
 		this.category = category;
+		this.tags = Arrays.asList(tags);
 	}
-	
-	public String getMovieName() {
-		return movieName;
+	public String getTitle() {
+		return title;
 	}
-	public String getReview() {
-		return review;
-	}
+
 	public String getContent() {
 		return content;
 	}
@@ -51,9 +52,12 @@ public class Review {
 	public Category getCategory() {
 		return category;
 	}
+	public Collection<Tag> getTags(){
+		return tags;
+	}
 	@Override
 	public String toString() {
-		return movieName + " " + review + " " + content;
+		return title + " " + " " + content;
 	}
 
 }
