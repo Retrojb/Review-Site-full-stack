@@ -6,19 +6,21 @@
 </head>
 <body>
 <h1>Categories:</h1>
-	
-	<a th:href="@{/review/}">Return to Movie Reviews</a>
-	<section>
-	<ul>
-	<li th:each="categories: ${categories}">
-	<a th:href="|@{/categories/movie-pages/}${categories.name}|">
-	<span th:text="${categories.name}"></span>
-	</a>
+<ul>
+	<li>
+	<a th:href="@{/categories}">Categories</a>
+	</li>
+	<li>
+		<a th:href="@{/reviews/tags}">List of Tags</a>
 	</li>
 	</ul>
-	</section>
-	<article>
-		<h3 th:text="|Category: ${reviews}"></h3>
-	</article>
+	
+	  <ul>
+        <li th:each="category: ${categories}">
+            <a th:href="|@{/category/}${category.name}|">
+                <span th:text="${category}"></span>
+            </a>
+        </li>
+    </ul>
 </body>
 </html>

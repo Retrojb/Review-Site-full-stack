@@ -20,7 +20,7 @@ public class TagController {
 	
 	@RequestMapping("/reviews/tags/{name}")
 	public String getTitleFromTag(@PathVariable(name="name")String name, Model model) {
-		model.addAttribute("tags", tagRepo.findByName(name));
+		model.addAttribute("tag", tagRepo.findByName(name));
 		return "tag";
 	}
 }

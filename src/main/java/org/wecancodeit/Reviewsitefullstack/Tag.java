@@ -23,17 +23,22 @@ public class Tag {
 	public Tag(String name) {
 		this.name = name;
 	}
+	
+	public Collection<Review> getReviews() {
+		return reviews;
+	}
 
+	@Override
+	public String toString() {
+		return name;
+	}
+	
 	public Long getId() {
 		return id;
 	}
 
 	public String getName() {
 		return name;
-	}
-
-	public Collection<Review> getReviews() {
-		return reviews;
 	}
 
 	
