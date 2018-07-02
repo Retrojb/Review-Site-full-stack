@@ -6,15 +6,7 @@
 <title>Star Wars Review Site</title>
 </head>
 <body>
-	<header>
-		<nav class="topnav">
-			<ul>
-				<li><a th:href="@{/categories}">Categories</a></li>
-				<li><a th:href="@{/reviews}">Reviews</a></li>
-				<li><a th:href="@{/tags}">List of Tags</a></li>
-			</ul>
-		</nav>
-	</header>
+	<div th:insert="fragments/navigation.html :: nav"></div>
 	<a th:href="|@{/tag/}${tag.name}|"></a>
 
 	<h1>Tag:</h1>

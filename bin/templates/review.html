@@ -2,39 +2,56 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="/CSS/layout.css"  />
-<link rel="stylesheet" href="/CSS/styles.css"  />
+<link rel="stylesheet" href="/CSS/layout.css" />
+<link rel="stylesheet" href="/CSS/styles.css" />
+<style>
+@import
+	url('https://fonts.googleapis.com/css?family=BioRhyme|Black+Ops+One|Bungee|Bungee+Shade|Creepster|Ewert|Fruktur|Gravitas+One|Monoton|Rubik:900')
+	;
+</style>
 <title th:text="${review.title}"></title>
 </head>
 
 <body>
-<header>
+	<header>
 		<nav class="topnav">
 			<ul>
+				<li><a th:href="@{/reviews}">Movies</a></li>
 				<li><a th:href="@{/categories}">Categories</a></li>
-				<li><a th:href="@{/reviews}">Reviews</a></li>
+				<li><a th:href="@{/tags}">Tags</a></li>
 			</ul>
 		</nav>
 	</header>
 
-<h1 th:text="${review.title}"></h1>
-
-
-	
+	<h1 class="funky-review" th:text="${review.title}"></h1>
+	<img class="movie-posters" th:src="|/image/${review.imgUrl}.jpg|"  />
+<div class="content-box">
+	<p class="review" th:text="${review.content}"></p>
+</div>
+	<section>
+		<ul>
+			<li th:each="tag : ${tags}"><a th:href="|@{/tags/}${tag.name}|">
+					<span th:text="${tag.name} + ': '"></span>
+			</a></li>
+		</ul>
+	</section>
 	<ul>
-	<li>
-		<a th:href="@{/reviews}">Review</a>
-		<a th:href="@{/categories}">Categories</a>
-		<a th:href="@{/tags}">Tags</a>
-	</li>	
+		<li th:each="review : ${reviews}"><a
+			th:href="|@{/review/}${review.title}|"> <span
+				th:text="${review.title} + ': '">Name</span>
+		</a></li>
 	</ul>
 
-<p th:text="${review.content}"></p>
-<p th:text="${review.tags}"></p>
+	<footer>
+		<nav class="navbar">
+		<ul>
+		<p>HandCrest &copy;</p>
+				<li><a th:href="@{/reviews}">Movies</a></li>
+				<li><a th:href="@{/categories}">Categories</a></li>
+				<li><a th:href="@{/tags}">Tags</a></li>
+			</ul>
+		</nav>
+	</footer>
 
-
-<footer>
-	<p>HandCrest &copy;</p>
-</footer>
 </body>
 </html>
