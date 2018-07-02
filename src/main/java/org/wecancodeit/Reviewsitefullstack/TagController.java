@@ -12,7 +12,7 @@ public class TagController {
 	@Autowired
 	private TagRepository tagRepo;
 	
-	@RequestMapping("/reviews/tags")
+	@RequestMapping("/tags")
 	public String getTags(Model model) {
 		model.addAttribute("tags", tagRepo.findAll());
 		return "tags";

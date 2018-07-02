@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="/CSS/styles.css"  />
 <title>Star Wars Review Site</title>
 </head>
+
 <body>
 	<header>
 		<nav class="topnav">
@@ -14,7 +15,7 @@
 			</ul>
 		</nav>
 	</header>
-		<h1>Tags:</h1>
+	<h1>Tags:</h1>
 	<ul>
         <li th:each="tag: ${tags}">
             <a th:href="|@{/tag/}${tag.name}|">
@@ -22,8 +23,10 @@
             </a>
         </li>
     </ul>
-</body>
+    
+    
 <footer>
 	<p>HandCrest &copy;</p>
 </footer>
+</body>
 </html>
