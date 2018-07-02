@@ -4,8 +4,20 @@
 }
 body {
 	background-color:black;
-    background-image: url("lightsabers.png");
-    background-position: left;
+}
+.index{
+	background-image: url("/image/Star-wars-logo-new-tall.jpg");
+	background-position: top;
+	background-repeat: no-repeat;
+}
+button{
+	background-color: black;
+	position: inherit;
+}
+.button{
+	display: flex; 
+	justify-content: center;
+	 
 }
 .reviews a:hover {
 	background-color: white;
