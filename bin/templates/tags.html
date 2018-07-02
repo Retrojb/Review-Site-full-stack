@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="navigation style" href="/static/CSS/navigation.css"  />
+<link rel="stylesheet" href="/CSS/layout.css"  />
+<link rel="stylesheet" href="/CSS/styles.css"  />
 <title>Star Wars Review Site</title>
 </head>
 <body>
 	<header>
-		<h1>Tags:</h1>
-		<nav class="sidenav">
+		<nav class="topnav">
 			<ul>
 				<li><a th:href="@{/categories}">Categories</a></li>
 				<li><a th:href="@{/reviews}">Reviews</a></li>
 			</ul>
 		</nav>
 	</header>
-	<section class="content">
-		<p>Lorem ipsum</p>
-	</section>
+		<h1>Tags:</h1>
+	<ul>
+        <li th:each="tag: ${tags}">
+            <a th:href="|@{/tag/}${tag.name}|">
+                <span th:text="${tag}"></span>
+            </a>
+        </li>
+    </ul>
 </body>
+<footer>
+	<p>HandCrest &copy;</p>
+</footer>
 </html>

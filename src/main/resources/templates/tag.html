@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="stylesheet" href="/CSS/layout.css"  />
+<link rel="stylesheet" href="/CSS/styles.css"  />
 <title>Star Wars Review Site</title>
 </head>
 <body>
-<h1>Categories:</h1>
-<ul>
-	<li>
-	<a th:href="@{/categories}">Categories</a>
-	</li>
-	<li>
-		<a th:href="@{/reviews}">Reviews</a>
-	</li>
-	<li>
-		<a th:href="@{/reviews/tags}">List of Tags</a>
-	</li>
-	 <li th:each="review : ${tag.reviews}">
-        <a th:href="|@{/reviews/}${review.title}|">
-          <span th:text="|${review.title}|"></span>
-          </a>
-          </li>
-          </ul>
-          </body>
-          </html>
+		<header>
+		<nav class="topnav">
+			<ul>
+				<li><a th:href="@{/categories}">Categories</a></li>
+				<li><a th:href="@{/reviews}">Reviews</a></li>
+				<li><a th:href="@{/tags}">List of Tags</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<h1>POOP</h1>
+</body>
+</html>

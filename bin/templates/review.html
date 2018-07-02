@@ -2,13 +2,14 @@
 <html>
 <head>
 
-<title>Star Wars Review Site</title>
+<title th:text="${review.title}"></title>
 </head>
 
 <body>
 
 <header>
-<h1 >Title</h1>
+
+<h1 th:text="${review.title}"></h1>
 
 </header>
 
@@ -20,8 +21,10 @@
 		<a th:href="@{/tags}">Tags</a>
 	</li>	
 	</ul>
-	<div>
-	
-	</div>
+
+<p th:text="${review.content}"></p>
+<p th:text="${review.tags}"></p>
+
+
 </body>
 </html>

@@ -30,13 +30,13 @@ public class ReviewSitePopulator implements CommandLineRunner {
 			Tag Garbage = tagRepo.save(new Tag("Garbage"));
 			Tag Amazing = tagRepo.save(new Tag("Amazing"));
 			
-			Category Original = categoryRepo.save(new Category("Original"));
-			Category Prequel = categoryRepo.save(new Category("Prequel"));
-			Category Sequel = categoryRepo.save(new Category("Sequel"));
+			Category catOriginal = categoryRepo.save(new Category("Original"));
+			Category catPrequel = categoryRepo.save(new Category("Prequel"));
+			Category catSequel = categoryRepo.save(new Category("Sequel"));
 		
 			
-			Review SWNewHope = reviewRepo.save(new Review("Star Wars: Episode IV: A New Hope", "young mans jpurney", "image/newhope.jpg", Original, SciFi, LucasFilms, Amazing, action, Adventure, romance));
-			Review SWReturnOfJedi = reviewRepo.save(new Review("Star Wars: Episode V: The Empire Strikes Back", "The saga continues, as the rebels lose control, and Luke learns from a Jedi Master", "empirestrike.jpg", Original, SciFi, LucasFilms, Amazing, action, Adventure, romance ));
+			Review SWNewHope = reviewRepo.save(new Review("Star Wars: Episode IV: A New Hope", "young mans journey", "image/newhope.jpg", catOriginal, SciFi, LucasFilms, Amazing, action, Adventure, romance));
+			Review SWReturnOfJedi = reviewRepo.save(new Review("Star Wars: Episode V: The Empire Strikes Back", "The saga continues, as the rebels lose control, and Luke learns from a Jedi Master", "empirestrike.jpg", catOriginal, SciFi, LucasFilms, Amazing, action, Adventure, romance ));
 //			Review SWEmpireStrikesBack= reviewRepo.save(new Review("Star Wars: Episode VI: Return of the Jedi", "Han Solo is saved from the Jabba the Hut, While Luke must face Darth Vader", "IT'S A TRAP!!!!!", "returnjedi.jpg", LucasFilms));
 //			Review SWThePhantomMenace = reviewRepo.save(new Review("Star Wars: Episode I: The Phantom Menace", "Some lame kid who loves to podrace is abducted by two Jedi", "I'ma Jar Jar Binks!", "infinitywars.jpg", Garbage));
 //			Review SWAttckOfTheClones = reviewRepo.save(new Review("Star Wars: Episode II: Attack of the Clones", "The Jedi order continue to fight off the Sith armies", "All my friends are dead, push me to the edge", "infinitywars.jpg", Garbage));

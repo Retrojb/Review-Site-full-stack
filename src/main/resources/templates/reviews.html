@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="stylesheet" href="/CSS/layout.css"  />
+<link rel="stylesheet" href="/CSS/styles.css"  />
 <title>Star Wars Review Site</title>
 </head>
 <body>
 <h1>Categories:</h1>
+<header>
+<nav class="topnav">
 <ul>
 	<li>
 	<a th:href="@{/categories}">Categories</a>
@@ -14,6 +17,23 @@
 		<a th:href="@{/reviews/tags}">List of Tags</a>
 	</li>
 	</ul>
+</nav>
+</header>
 	
+	<section>
+	<ul>
+	<li>
+		<a th:href="@{reviews/title}"></a>
+	</li>
+	</ul>
+	<p th:each="review: ${reviews}"
+		th:text="${review.title}"></p>
+	</section>
+	<ul>
+		<li th:each="review : ${reviews}"><a
+			th:href="|@{/review/}${review.title}|"> <span
+				th:text="${review.title} + ': '">Name</span>
+		</a></li>
+</ul>
 </body>
 </html>

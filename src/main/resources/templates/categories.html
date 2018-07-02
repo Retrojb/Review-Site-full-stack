@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="stylesheet" href="/CSS/navigation.css"  />
+<link rel="stylesheet" href="/CSS/layout.css"  />
+<link rel="stylesheet" href="/CSS/styles.css"  />
 <title>Star Wars Review Site</title>
 </head>
 <body>
-<h1>Categories:</h1>
+<header>
+<nav class="topnav">
 <ul>
-	<li>
-	<a th:href="@{/categories}">Categories</a>
-	</li>
-	<li>
-		<a th:href="@{/reviews/tags}">List of Tags</a>
-	</li>
+	<li><a th:href="@{/reviews}">Review</a></li>
+	<li><a th:href="@{/tags}">List of Tags</a></li>
 	</ul>
-	
+	</nav>
+</header>
+<main  class="content">
+	<h1>Categories:</h1>
 	  <ul>
         <li th:each="category: ${categories}">
             <a th:href="|@{/category/}${category.name}|">
@@ -22,5 +24,9 @@
             </a>
         </li>
     </ul>
+</main>
+<footer>
+	<p>HandCrest &copy;</p>
+</footer>
 </body>
 </html>
