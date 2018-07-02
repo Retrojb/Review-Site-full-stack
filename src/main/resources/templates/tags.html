@@ -3,6 +3,11 @@
 <head>
 <link rel="stylesheet" href="/CSS/layout.css"  />
 <link rel="stylesheet" href="/CSS/styles.css"  />
+<style>
+@import
+	url('https://fonts.googleapis.com/css?family=BioRhyme|Black+Ops+One|Bungee|Bungee+Shade|Creepster|Ewert|Fruktur|Gravitas+One|Monoton|Rubik:900')
+	;
+</style>
 <title>Star Wars Review Site</title>
 </head>
 
@@ -10,12 +15,15 @@
 	<header>
 		<nav class="topnav">
 			<ul>
+				<li><a th:href="@{/reviews}">Movies</a></li>
 				<li><a th:href="@{/categories}">Categories</a></li>
-				<li><a th:href="@{/reviews}">Reviews</a></li>
 			</ul>
 		</nav>
 	</header>
-	<h1>Tags:</h1>
+	<div class="header">
+		<h1 class="funky">Tags</h1>
+	</div>
+	<div class="review">
 	<ul>
         <li th:each="tag: ${tags}">
             <a th:href="|@{/tag/}${tag.name}|">
@@ -23,10 +31,16 @@
             </a>
         </li>
     </ul>
-    
-    
+    </div>
 <footer>
-	<p>HandCrest &copy;</p>
-</footer>
+		<nav class="navbar">
+		<ul>
+		<p>HandCrest &copy;</p>
+				<li><a th:href="@{/reviews}">Movies</a></li>
+				<li><a th:href="@{/categories}">Categories</a></li>
+				<li><a th:href="@{/tags}">Tags</a></li>
+			</ul>
+		</nav>
+	</footer>
 </body>
 </html>

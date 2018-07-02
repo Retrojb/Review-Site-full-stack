@@ -3,29 +3,44 @@
 <head>
 <link rel="stylesheet" href="/CSS/layout.css" />
 <link rel="stylesheet" href="/CSS/styles.css" />
-<title>Star Wars Review Site</title>
+<style>
+@import
+	url('https://fonts.googleapis.com/css?family=BioRhyme|Black+Ops+One|Bungee|Bungee+Shade|Creepster|Ewert|Fruktur|Gravitas+One|Monoton|Rubik:900')
+	;
+</style>
+<title>Star Wars Categories</title>
 </head>
 
 <body>
 	<header>
 		<nav class="topnav">
 			<ul>
-				<li><a th:href="@{/reviews}">Review</a></li>
-				<li><a th:href="@{/tags}">List of Tags</a></li>
+				<li><a th:href="@{/reviews}">Movies</a></li>
+				<li><a th:href="@{/tags}">Tags</a></li>
 			</ul>
 		</nav>
+		
 	</header>
-	<main class="content">
-	<h1>Categories:</h1>
+	<div class="header">
+		<h1 class="funky">Categories</h1>
+	</div>
+	<div class="reviews">
 	<ul>
 		<li th:each="category: ${categories}"><a
 			th:href="|@{/category/}${category.name}|"> <span
 				th:text="${category}"></span>
 		</a></li>
 	</ul>
-	</main>
+	</div>
 	<footer>
+		<nav class="navbar">
+		<ul>
 		<p>HandCrest &copy;</p>
+				<li><a th:href="@{/reviews}">Movies</a></li>
+				<li><a th:href="@{/categories}">Categories</a></li>
+				<li><a th:href="@{/tags}">Tags</a></li>
+			</ul>
+		</nav>
 	</footer>
 </body>
 </html>
