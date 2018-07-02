@@ -15,6 +15,7 @@ public class TagController {
 	@RequestMapping("/tags")
 	public String getTags(Model model) {
 		model.addAttribute("tags", tagRepo.findAll());
+		System.out.println(tagRepo.findAll());
 		return "tags";
 	}
 	
