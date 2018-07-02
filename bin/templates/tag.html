@@ -20,16 +20,19 @@
 			</ul>
 		</nav>
 	</header>
-<div class="header">
+	<div class="header">
 		<h1 class="funky">Tag</h1>
 	</div>
 	<div class="review">
-	<p th:each="review: ${tag.reviews}">
-	<span th:text="${review.title}"></span></p></div>
+		<p th:each="review: ${tag.reviews}">
+			<span th:text="${review.title}"></span>
+		</p>
+	</div>
 	<footer>
 		<nav class="navbar">
-		<ul>
-		<p>HandCrest &copy;</p>
+			<ul>
+				<p>HandCrest &copy;</p>
+				<li><a th:href="@{/}">Home</a></li>
 				<li><a th:href="@{/reviews}">Movies</a></li>
 				<li><a th:href="@{/categories}">Categories</a></li>
 				<li><a th:href="@{/tags}">Tags</a></li>

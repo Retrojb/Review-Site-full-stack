@@ -13,15 +13,17 @@ body {
 button{
 	background-color: black;
 	position: inherit;
+	margin-top: 42rem;
+	
 }
 .button{
 	display: flex; 
 	justify-content: center;
-	 
+	 text-decoration: none;
 }
 .reviews a:hover {
-	background-color: white;
-	color: black;
+    background-color: #ddd;
+    color: black;
 }
 .return{
 	float:left;

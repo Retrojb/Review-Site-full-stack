@@ -24,28 +24,29 @@
 	<div class="header">
 		<h1 class="funky">Category</h1>
 	</div>
-	
+
 	<div class="reviews">
-	<ul>
-		<li th:each="review: ${category.reviews}">
-		<a th:href="|@{/review/}${review.title}|">
-		<span th:text="${review.title}"></span></a></li>
-	</ul>
+		<ul>
+			<li th:each="review: ${category.reviews}"><a
+				th:href="|@{/review/}${review.title}|"> <span
+					th:text="${review.title}"></span></a></li>
+		</ul>
 	</div>
-	
-	
-<ul>
+
+
+	<ul>
 		<li th:each="review : ${reviews}"><a
 			th:href="|@{/review/}${review.title}|"> <span
 				th:text="${review.title} + ': '">Name</span>
 		</a></li>
 	</ul>
-	
+
 
 	<footer>
 		<nav class="navbar">
 			<ul>
 				<p>HandCrest &copy;</p>
+				<li><a th:href="@{/}">Home</a></li>
 				<li><a th:href="@{/reviews}">Movies</a></li>
 				<li><a th:href="@{/categories}">Categories</a></li>
 				<li><a th:href="@{/tags}">Tags</a></li>

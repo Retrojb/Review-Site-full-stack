@@ -24,7 +24,7 @@
 	<div class="header">
 		<h1 class="funky">Reviews</h1>
 	</div>
-	
+
 	<div class="reviews">
 		<ul>
 			<li th:each="review : ${reviews}"><a
@@ -36,8 +36,9 @@
 
 	<footer>
 		<nav class="navbar">
-		<ul>
-		<p>HandCrest &copy;</p>
+			<ul>
+				<p>HandCrest &copy;</p>
+				<li><a th:href="@{/}">Home</a></li>
 				<li><a th:href="@{/categories}">Categories</a></li>
 				<li><a th:href="@{/tags}">Tags</a></li>
 			</ul>
