@@ -18,11 +18,11 @@ public class ReviewSiteController {
 		model.addAttribute("reviews", reviewRepo.findAll());
 		return "reviews";
 	}
-	@RequestMapping(value = "/review", method = RequestMethod.POST)
-	public String addReview(String title, String content, String imgUrl, Category category, Tag ...tags) {
-		reviewRepo.save(new Review(title, content, imgUrl, category, tags));
-		return "redirect:/review";
-	}
+//	@RequestMapping(value = "/review", method = RequestMethod.POST)
+//	public String addReview(String title, String content, String imgUrl, Category category, Tag ...tags) {
+//		reviewRepo.save(new Review(title, content, imgUrl, category, tags));
+//		return "redirect:/review";
+//	}
 
 	@RequestMapping("/review/{title}")
 	public String getReview(@PathVariable(name="title") String title, Model model) {

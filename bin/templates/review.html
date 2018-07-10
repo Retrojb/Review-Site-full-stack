@@ -42,8 +42,10 @@
 		</a></li>
 	</ul>
 	<form action="/review" method="POST">
+	<input type="hidden" th:text="${review.title}" name="title"  /> 
+	<label>Username: <input type="text" name="userName"  /></label>
+	<label>Comment: <input type="text" name="content"  /></label>
 	
-	<label>Comment: <input type="text" name="comment"  /></label>
 	<input type="submit" value="Submit"  />
 	</form>
 
