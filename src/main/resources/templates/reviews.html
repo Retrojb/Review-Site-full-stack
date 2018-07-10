@@ -16,6 +16,7 @@
 			<ul>
 				<li><a th:href="@{/categories}">Categories</a></li>
 				<li><a th:href="@{/tags}">Tags</a></li>
+				<li><a th:href="@{/comments}">Comments</a></li>
 			</ul>
 		</nav>
 		<audio autoplay="autoplay" src="Audio/theme.mp3"></audio>
@@ -33,7 +34,18 @@
 			</a></li>
 		</ul>
 	</div>
-
+	
+	<form action="/reviews" method="POST">
+	<label>Movie Title: <input type="text" name="title"  /></label>
+	<label>Description: <input type="text" name="content"  /></label>
+	<label>Image Url: <input type="url" name="imgUrl"  /></label>
+	<label>Category: <input type="text" name="category"  /></label>
+	<label>Tags: <input type="text" name="tags"  /></label>
+	<input type="submit" value="Submit"  />
+	</form>
+	
+	
+	
 	<footer>
 		<nav class="navbar">
 			<ul>

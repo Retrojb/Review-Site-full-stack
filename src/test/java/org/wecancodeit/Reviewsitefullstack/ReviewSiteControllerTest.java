@@ -29,16 +29,16 @@ public class ReviewSiteControllerTest {
 	
 	@Test
 	public void shouldReturnReviews() throws Exception{
-		mvc.perform(get("/reviews"))
-		// I can not get this to accept request 'get' to return
-		
-		.andExpect(view().name(is(equalTo("reviews"))));
-
+		mvc.perform(get("/reviews")).andExpect(view().name(is(equalTo("reviews"))));
 	}
-//	@Test
-//	public void shouldReturnReviewSite() throws Exception{
-//	mvc.perform(get("/review"));//.andExpect(view().movieName(is(equalTo("review"))));	
-//	}
+	@Test
+	public void properRequest() throws Exception{
+		mvc.perform(get("/reviews")).andExpect(status().is2xxSuccessful());
+	}
+	@Test
+	public void properRequestShouldReturnExpectedView() throws Exception{
+		mvc.perform(get("/reviewss")).andExpect(view().name("reviews"));
+	}
 
 }
 

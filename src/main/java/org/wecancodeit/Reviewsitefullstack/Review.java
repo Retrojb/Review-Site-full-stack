@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Review {
@@ -21,7 +22,10 @@ public class Review {
 	private String imgUrl;
 
 	@ManyToMany
-	private Collection<Tag>tags;
+	private Collection<Tag> tags;
+	
+	@OneToMany(mappedBy ="review")
+	private Collection<Comment> comments;
 	
 	@ManyToOne
 	Category category;
@@ -32,11 +36,12 @@ public class Review {
 	
 	protected Review() {}
 	
-	public Review(String title, String content, String imgUrl, Category category, Tag ...tags) {
+	public Review(String title, String content, String imgUrl, Category category, Collection<Comment> comments, Tag ...tags) {
 		this.title = title;
 		this.content = content;
 		this.imgUrl = imgUrl;
 		this.category = category;
+		this.comments = comments;
 		this.tags = Arrays.asList(tags);
 	}
 	public String getTitle() {
@@ -55,6 +60,10 @@ public class Review {
 	public Collection<Tag> getTags(){
 		return tags;
 	}
+	public Collection<Comment> getComments() {
+		return comments;
+	}
+
 	@Override
 	public String toString() {
 		return title + " " + " " + content;

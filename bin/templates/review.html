@@ -41,6 +41,11 @@
 				th:text="${review.title} + ': '">Name</span>
 		</a></li>
 	</ul>
+	<form action="/review" method="POST">
+	
+	<label>Comment: <input type="text" name="comment"  /></label>
+	<input type="submit" value="Submit"  />
+	</form>
 
 	<footer>
 		<nav class="navbar">
