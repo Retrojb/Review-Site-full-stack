@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
-@Service
+//turned off the @service annotation to stop duplicates, but to keep the populator in case 
 public class ReviewSitePopulator implements CommandLineRunner {
 
 		@Autowired
@@ -16,6 +16,9 @@ public class ReviewSitePopulator implements CommandLineRunner {
 
 		@Autowired
 		private TagRepository tagRepo;
+		
+		@Autowired
+		private CommentsRepository commentRepo;
 		
 		@Override
 		public void run(String... args) throws Exception {
@@ -36,6 +39,7 @@ public class ReviewSitePopulator implements CommandLineRunner {
 			Category catSequel = categoryRepo.save(new Category("Sequel"));
 			Category catAnimated = categoryRepo.save(new Category("Animated"));
 			Category catSideStory = categoryRepo.save(new Category("A Star Wars Story"));
+		
 		
 			
 			Review SWThePhantomMenace = reviewRepo.save(new Review("Star Wars: Episode I: The Phantom Menace", "Two Jedi Knights escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force, but the long dormant Sith resurface to claim their old glory (IMDb)",

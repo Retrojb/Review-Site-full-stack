@@ -36,12 +36,11 @@ public class Review {
 	
 	protected Review() {}
 	
-	public Review(String title, String content, String imgUrl, Category category, Collection<Comment> comments, Tag ...tags) {
+	public Review(String title, String content, String imgUrl, Category category, Tag ...tags) {
 		this.title = title;
 		this.content = content;
 		this.imgUrl = imgUrl;
 		this.category = category;
-		this.comments = comments;
 		this.tags = Arrays.asList(tags);
 	}
 	public String getTitle() {
