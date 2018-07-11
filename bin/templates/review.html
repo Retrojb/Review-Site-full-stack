@@ -48,7 +48,14 @@
 	
 	<input type="submit" value="Submit"  />
 	</form>
-
+	<article>
+		<ul>
+			<li th:each ="comment: ${review.comments}">
+			<span th:text="${comment.userName}"></span>
+			<span th:text="${comment.contents}"></span>
+			</li>
+		</ul>
+	</article>
 	<footer>
 		<nav class="navbar">
 			<ul>
