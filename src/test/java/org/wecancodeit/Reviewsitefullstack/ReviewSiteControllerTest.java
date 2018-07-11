@@ -2,6 +2,7 @@ package org.wecancodeit.Reviewsitefullstack;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.BDDMockito.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +26,7 @@ public class ReviewSiteControllerTest {
 	public ReviewRepository repo;
 	
 	@Mock
-	public Review review;
+	public Review testReview;
 	
 	@Test
 	public void shouldReturnReviews() throws Exception{
@@ -35,10 +36,37 @@ public class ReviewSiteControllerTest {
 	public void properRequest() throws Exception{
 		mvc.perform(get("/reviews")).andExpect(status().is2xxSuccessful());
 	}
+	
+	
 	@Test
-	public void properRequestShouldReturnExpectedView() throws Exception{
-		mvc.perform(get("/reviewss")).andExpect(view().name("reviews"));
+	public void properRequestShouldProvideTheCorrectModel() throws Exception{
+		mvc.perform(get("/reviews")).andExpect(model().attribute("reviews", repo.findAll()));
 	}
-
+	
+	
+	@Test
+	public void properRequestToReview() throws Exception{
+		given(repo.findOne(1L)).willReturn(testReview);
+		mvc.perform(get("/reviews/1")).andExpect(status().is2xxSuccessful());
+	}
+	@Test
+	public void improperRequestToReviewNotOk() throws Exception{
+		given(repo.findOne(1L)).willReturn(testReview);
+		mvc.perform(get("/revview/1")).andExpect(status().is4xxClientError());
+	}
+	
+	
+	
+	@Test
+	public void properRequestShouldReturnExpectedViewReview() throws Exception{
+		given(repo.findOne(1L)).willReturn(testReview);
+		mvc.perform(get("/reviews/1")).andExpect(view().name("review"));
+	}
+	@Test
+	public void properRequestShouldProvideTheCorrectModelReview() throws Exception{
+		given(repo.findOne(1L)).willReturn(testReview);
+		mvc.perform(get("/reviews/1")).andExpect(model().attribute("reviews", repo.findAll()));
+	}
+	
 }
 
