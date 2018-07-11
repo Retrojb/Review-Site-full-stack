@@ -24,7 +24,7 @@ public class ReviewSiteController {
 //		return "redirect:/review";
 //	}
 
-	@RequestMapping("/review/{title}")
+	@RequestMapping(value="/review/{title}")
 	public String getReview(@PathVariable(name="title") String title, Model model) {
 		model.addAttribute("review", reviewRepo.findByTitle(title));
 		return "review";
