@@ -10,11 +10,11 @@ public class IndexController {
 
 	@Autowired
 	ReviewRepository reviewRepo;
-	
+
 	@RequestMapping(value = "/")
 	public String getReview(Model model) {
 		model.addAttribute("index", reviewRepo.findAll());
 		return "index";
 	}
-	
+
 }

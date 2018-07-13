@@ -11,16 +11,14 @@ public class CommentController {
 
 	@Autowired
 	CommentsRepository commentRepo;
-	
+
 	@Autowired
 	ReviewRepository reviewRepo;
-	
-	
-	
-	@RequestMapping(value="/review", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	public String addComment(String userName, String content, String title) {
 		Review review = reviewRepo.findByTitle(title);
-		if(review != null) {
+		if (review != null) {
 			commentRepo.save(new Comment(userName, content, review));
 		}
 		return "redirect:/review/" + title;

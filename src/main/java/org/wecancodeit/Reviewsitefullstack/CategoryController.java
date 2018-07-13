@@ -8,21 +8,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CategoryController {
-	
+
 	@Autowired
 	private CategoryRepository categoryRepo;
-	
+
 	@RequestMapping("/categories")
 	public String getCategories(Model model) {
 		model.addAttribute("categories", categoryRepo.findAll());
 		return "categories";
 	}
-	
+
 	@RequestMapping("/category/{name}")
-	public String getCategory(@PathVariable(name="name")String name, Model model) {
-		 model.addAttribute("category", categoryRepo.findByName(name));
+	public String getCategory(@PathVariable(name = "name") String name, Model model) {
+		model.addAttribute("category", categoryRepo.findByName(name));
 		return "category";
 	}
-	
 
 }

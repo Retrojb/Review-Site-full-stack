@@ -1,16 +1,12 @@
-console.log('poop')
 
-let xhttp = new XMLHttpRequest()
+//this needs to be changed to a let variable instead of VAR
+var xhr = new XMLHttpRequest()
 
-xhttp.onreadystatechange = function() {
-	if (this.readyState == 4 && this.status == 200) {
-		
-		document.getElementById('newTag').innerHTML = xhttp.responseText
-		
-		
+xhr.onreadystatechange = function() {
+	if (this.readyState == 4 && this.responseText == 200) {
+		document.getElementById('newTag').innerHTML = xhr.responseText;
 	}
 }
-
-xhttp.open('GET', '../tags.html', true)
-
-xhttp.send()
+xhr.open("GET", '../tag.html', true);
+//setInterval(function(){
+xhr.send()

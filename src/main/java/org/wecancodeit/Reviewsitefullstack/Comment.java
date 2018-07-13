@@ -13,14 +13,15 @@ public class Comment {
 	@GeneratedValue
 	private Long id;
 	private String userName;
-	
+
 	@Lob
 	private String contents;
-	
+
 	@ManyToOne
 	Review review;
-	
-	protected Comment() {}
+
+	protected Comment() {
+	}
 
 	public Comment(String userName, String contents, Review review) {
 		this.userName = userName;
@@ -39,10 +40,9 @@ public class Comment {
 	public String getContents() {
 		return contents;
 	}
-	
+
 	public Review getReview() {
 		return review;
 	}
-	
-	
+
 }

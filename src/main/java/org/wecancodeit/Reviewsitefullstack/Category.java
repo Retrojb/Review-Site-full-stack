@@ -19,10 +19,11 @@ public class Category {
 	@OneToMany(mappedBy = "category")
 	private Collection<Review> reviews;
 
-	protected Category() {}
+	protected Category() {
+	}
 
 	public Category(String name) {
-		this.name = name;	
+		this.name = name;
 	}
 
 	public Collection<Review> getReviews() {
@@ -37,7 +38,7 @@ public class Category {
 	public String getName() {
 		return name;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}

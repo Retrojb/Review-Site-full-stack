@@ -31,8 +31,13 @@
                 <span th:text="${tag}"></span>
             </a>
         </li>
-        <li id="newTag"></li>
+        
+        <form action="/tags" method="POST">
+        <label>New Tag: <input type="text" name="name"  /></label>
+        <input type="submit" value="Submit"  />
+        </form>
     </ul>
+        <ul class="api-tag"></ul>
     </div>
 <footer>
 		<nav class="navbar">
